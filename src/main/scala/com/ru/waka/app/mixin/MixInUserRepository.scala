@@ -4,11 +4,10 @@ import com.ru.waka.app.domains.User
 import com.ru.waka.app.domains.services.UserRepository
 import com.ru.waka.app.infrastructures.UserRepositoryImpl
 
+import scala.util.Try
+
 trait MixInUserRepository {
-    val userRepository: UserRepository = new UserRepositoryImpl(
-        Map(
-            1 -> User(1, "hoge"),
-            2 -> User(2, "fuga")
-        )
-    )
+  val userRepository: UserRepository[Try] = new UserRepositoryImpl(
+    Map(1L -> User(1L, "hoge"), 2L -> User(2L, "fuga"))
+  )
 }

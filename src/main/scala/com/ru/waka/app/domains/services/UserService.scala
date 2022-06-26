@@ -2,10 +2,15 @@ package com.ru.waka.app.domains.services
 
 import com.ru.waka.app.domains.User
 
-trait UserService extends UsesUserRepository {
-    def fetch(id: Long): Either[Exception, Option[User]] = 
-        userRepository.fetch(id)
+import scala.util.Try
 
-    def fetchAll(): Either[Exception, Seq[User]] =
-        userRepository.fetch()
+trait UserService extends UsesUserRepository[Try] {
+  def fetch(id: Long): Try[Option[User]] = {
+    for {
+      r <- userRepository.fetch(id)
+    } yield r
+  }
+
+  def fetchAll(): Try[Seq[User]] =
+    userRepository.fetch()
 }

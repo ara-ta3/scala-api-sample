@@ -2,12 +2,12 @@ package com.ru.waka.app.domains.services
 
 import com.ru.waka.app.domains.User
 
-trait UserRepository {
-    def fetch(): Either[Exception, Seq[User]]
+trait UserRepository[F[_]] {
+  def fetch(): F[Seq[User]]
 
-    def fetch(id: Long): Either[Exception, Option[User]]
+  def fetch(id: Long): F[Option[User]]
 }
 
-trait UsesUserRepository {
-    val userRepository: UserRepository
+trait UsesUserRepository[F[_]] {
+  val userRepository: UserRepository[F]
 }
