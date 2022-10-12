@@ -10,7 +10,7 @@ import scala.concurrent.{Await, duration}
 import scala.concurrent.ExecutionContext.Implicits.global
 
 class GraphQLService {
-  val QueryType =
+  private val QueryType =
     ObjectType(
       "Query",
       fields[Unit, Unit](
@@ -18,7 +18,7 @@ class GraphQLService {
       )
     )
 
-  val schema = Schema(QueryType)
+  private val schema = Schema(QueryType)
 
   def fetch(): Any = {
     val query = graphql"{ hello }"
