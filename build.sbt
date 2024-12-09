@@ -6,7 +6,7 @@ name := "scala-api-sample"
 
 version := "0.1.0-SNAPSHOT"
 
-scalaVersion := "2.13.6"
+scalaVersion := "2.13.8"
 
 libraryDependencies ++= Seq(
   "org.json4s" %% "json4s-jackson" % "4.0.3",
