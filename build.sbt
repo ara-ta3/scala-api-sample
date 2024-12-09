@@ -6,12 +6,12 @@ name := "scala-api-sample"
 
 version := "0.1.0-SNAPSHOT"
 
-scalaVersion := "2.13.8"
+scalaVersion := "2.13.14"
 
 libraryDependencies ++= Seq(
   "org.json4s" %% "json4s-jackson" % "4.0.3",
   "javax.servlet" % "javax.servlet-api" % "4.0.1" % "provided"
-) ++ scalatra ++ sangria
+) ++ scalatra
 
 val scalatra = Seq(
   "org.scalatra" %% "scalatra" % ScalatraVersion,
