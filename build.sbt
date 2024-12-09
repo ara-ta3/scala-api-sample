@@ -2,7 +2,7 @@ val ScalatraVersion = "2.8.2"
 
 organization := "com.ru.waka"
 
-name := "acala-api-sample"
+name := "scala-api-sample"
 
 version := "0.1.0-SNAPSHOT"
 
