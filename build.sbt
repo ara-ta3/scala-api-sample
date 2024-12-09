@@ -19,9 +19,4 @@ val scalatra = Seq(
   "org.scalatra" %% "scalatra-swagger" % ScalatraVersion,
 )
 
-val sangria = Seq(
-  "org.sangria-graphql" %% "sangria" % "3.4.0",
-  "org.sangria-graphql" %% "sangria-json4s-jackson" % "2.0.1"
-)
-
 enablePlugins(JettyPlugin)
