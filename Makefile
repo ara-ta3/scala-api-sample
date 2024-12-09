@@ -2,6 +2,6 @@ SBT=sbt
 
 
 server:
-	$(SBT) jetty:start
+	$(SBT) ~Jetty/start
 
 
