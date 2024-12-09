@@ -1,8 +1,8 @@
 package com.ru.waka.app.mixin
 
+import com.ru.waka.app.Types.EitherThrowable
 import com.ru.waka.app.domains.User
 import com.ru.waka.app.domains.services.UserRepository
-import com.ru.waka.app.implicits.FlatMap.EitherThrowable
 import com.ru.waka.app.infrastructures.UserRepositoryImpl
 
 trait MixInUserRepository {

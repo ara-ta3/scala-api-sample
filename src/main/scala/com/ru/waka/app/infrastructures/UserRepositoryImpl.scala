@@ -1,8 +1,8 @@
 package com.ru.waka.app.infrastructures
 
+import com.ru.waka.app.Types.EitherThrowable
 import com.ru.waka.app.domains.User
 import com.ru.waka.app.domains.services.UserRepository
-import com.ru.waka.app.implicits.FlatMap.EitherThrowable
 
 class UserRepositoryImpl(data: Map[Long, User])
     extends UserRepository[EitherThrowable] {
