@@ -6,12 +6,9 @@ import com.ru.waka.app.domains.{AccountProfile, User}
 trait UserService
     extends UsesUserRepository[EitherThrowable]
     with UsesAccountProfileRepository[EitherThrowable] {
-  def fetch(id: Long): EitherThrowable[(Option[User], Option[AccountProfile])] =
+  def fetchAll(): EitherThrowable[Seq[(User, Option[AccountProfile])]] =
     for {
-      r <- userRepository.fetch(id)
-      info <- accountProfileRepository.fetch(id)
-    } yield (r, info)
-
-  def fetchAll(): EitherThrowable[Seq[User]] =
-    userRepository.fetch()
+      users <- userRepository.fetch()
+      accounts <- accountProfileRepository.fetch(users.map(_.id))
+    } yield users.map(u => (u, accounts.get(u.id)))
 }

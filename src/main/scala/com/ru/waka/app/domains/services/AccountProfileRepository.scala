@@ -3,7 +3,7 @@ package com.ru.waka.app.domains.services
 import com.ru.waka.app.domains.AccountProfile
 
 trait AccountProfileRepository[F[_]] {
-  def fetch(id: Long): F[Option[AccountProfile]]
+  def fetch(ids: Seq[Long]): F[Map[Long, AccountProfile]]
 }
 
 trait UsesAccountProfileRepository[F[_]] {
