@@ -4,7 +4,7 @@ name := "scala-api-sample"
 
 version := "0.1.0-SNAPSHOT"
 
-scalaVersion := "2.13.14"
+scalaVersion := "2.13.15"
 
 val ScalatraVersion = "2.8.2"
 val scalatra = Seq(
