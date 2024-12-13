@@ -11,4 +11,13 @@ trait UserService
       users <- userRepository.fetch()
       accounts <- accountProfileRepository.fetch(users.map(_.id))
     } yield users.map(u => (u, accounts.get(u.id)))
+
+  def updateXAccount(userId: Long, xAccount: String): EitherThrowable[Unit] =
+    for {
+      userOpt <- userRepository.fetch(userId)
+      user <- userOpt.toRight(new Exception(s""))
+      currentAccount <- accountProfileRepository.fetch(Seq(user.id))
+      updated = ??? // user.update(currentAccount, xAccount)
+      // _ <- accountProfileRepository.put(updated)
+    } yield ()
 }

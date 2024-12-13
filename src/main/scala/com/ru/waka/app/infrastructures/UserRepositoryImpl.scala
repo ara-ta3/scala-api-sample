@@ -8,4 +8,7 @@ class UserRepositoryImpl(data: Map[Long, User])
     extends UserRepository[EitherThrowable] {
   override def fetch(): EitherThrowable[Seq[User]] =
     Right(data.values.toSeq)
+
+  override def fetch(id: Long): EitherThrowable[Option[User]] =
+    Right(data.get(id))
 }
