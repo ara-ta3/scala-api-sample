@@ -1,5 +1,6 @@
 package com.ru.waka.app
 
 object Types {
-  type EitherThrowable[A] = Either[Throwable, A]
+  type EitherResult[A] = Either[Throwable, A]
+  type DatabaseIO[T] = Either[Throwable, T]
 }
