@@ -2,6 +2,7 @@ package com.ru.waka.app.domains.services
 
 import com.ru.waka.app.Types.EitherResult
 import com.ru.waka.app.domains.{AccountProfile, User}
+import com.ru.waka.app.utils.Implicits.RichOption
 
 trait UserService
     extends UsesUserRepository[EitherResult]
@@ -15,7 +16,7 @@ trait UserService
   def updateXAccount(userId: Long, xAccount: String): EitherResult[Unit] =
     for {
       userOpt <- userRepository.fetch(userId)
-      user <- userOpt.toRight(new Exception(s""))
+      user <- userOpt.orError(s"user not found. id: $userId")
       currentAccount <- accountProfileRepository.fetch(Seq(user.id))
       updated = ??? // user.update(currentAccount, xAccount)
       // _ <- accountProfileRepository.put(updated)
